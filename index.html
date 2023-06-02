@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Celebrity Gallery</title>
+  <style>
+    .celebrity-card {
+      display: inline-block;
+      margin: 10px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .celebrity-card img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Celebrity Gallery</h1>
+
+  <div id="celebrity-container"></div>
+
+  <script>
+    // 유명인 정보 배열
+    const celebrities = [
+      {
+        name: 'Albert Einstein',
+        imageUrl: 'https://source.unsplash.com/1600x900/?albert-einstein'
+      },
+      {
+        name: 'Nelson Mandela',
+        imageUrl: 'https://source.unsplash.com/1600x900/?nelson-mandela'
+      },
+      {
+        name: 'Marie Curie',
+        imageUrl: 'https://source.unsplash.com/1600x900/?marie-curie'
+      },
+      {
+        name: 'Steve Jobs',
+        imageUrl: 'https://source.unsplash.com/1600x900/?steve-jobs'
+      },
+      {
+        name: 'Amelia Earhart',
+        imageUrl: 'https://source.unsplash.com/1600x900/?amelia-earhart'
+      },
+      {
+        name: 'Frida Kahlo',
+        imageUrl: 'https://source.unsplash.com/1600x900/?frida-kahlo'
+      },
+      {
+        name: 'Martin Luther King Jr.',
+        imageUrl: 'https://source.unsplash.com/1600x900/?martin-luther-king'
+      },
+      {
+        name: 'Ada Lovelace',
+        imageUrl: 'https://source.unsplash.com/1600x900/?ada-lovelace'
+      },
+      {
+        name: 'Malala Yousafzai',
+        imageUrl: 'https://source.unsplash.com/1600x900/?malala-yousafzai'
+      },
+      {
+        name: 'Leonardo da Vinci',
+        imageUrl: 'https://source.unsplash.com/1600x900/?leonardo-da-vinci'
+      }
+    ];
+
+    // 유명인 이미지를 가져와서 화면에 표시하는 함수
+    function getCelebrities() {
+      const celebrityContainer = document.getElementById('celebrity-container');
+
+      celebrities.forEach(celebrity => {
+        const celebrityCard = document.createElement('div');
+        celebrityCard.classList.add('celebrity-card');
+
+        const celebrityImg = document.createElement('img');
+        celebrityImg.src = celebrity.imageUrl;
+        celebrityImg.alt = celebrity.name;
+        celebrityImg.addEventListener('click', () => searchCelebrity(celebrity.name));
+
+        const celebrityName = document.createElement('h3');
+        celebrityName.textContent = celebrity.name;
+
+        celebrityCard.appendChild(celebrityImg);
+        celebrityCard.appendChild(celebrityName);
+        celebrityContainer.appendChild(celebrityCard);
+      });
+    }
+
+    // 관련 유명인 검색 페이지로 이동
+    function searchCelebrity(name) {
+      const searchUrl = `https://google.com/search?q=${name}`;
+      window.location.href = searchUrl;
+    }
+
+    // 페이지 로드 시 유명인 이미지 가져오기
+    window.addEventListener('load', getCelebrities);
+  </script>
+</body>
+
+</html>
