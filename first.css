@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+h1{
+  color:#b1daff;
+}
+
+body{
+  text-align:center;
+  background:#000022;
+}
+
+.appframe{
+  background:#ffffff;
+  width:420px;
+  margin:auto;
+  padding:10px;
+  border-radius:10px;
+}
+
+ul{
+  list-style:none;
+  padding:0;
+}
+
+li{
+  border-top:solid 1px #b1daff;
+  border-bottom:solid 1px #b1daff;
+  padding:2px;
+  margin:2px;
+  cursor:pointer;
+
+}
+
+li:hover{
+  background:#f5ea2d;
+}
+.active{
+  background:#b1daff;
+
+}
